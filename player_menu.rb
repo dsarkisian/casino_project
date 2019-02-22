@@ -4,6 +4,7 @@ require_relative 'main_menu'
 
 
 class PlayerMenu 
+  attr_accessor :player
 
   @@menu_options = [
     'Play a Game',
@@ -11,21 +12,26 @@ class PlayerMenu
     'Exit to main menu'
   ]
 
-  def initialize
+  def initialize(name)
     puts
-    puts "PLAYER MENU. PLEASE SELECT: "
+    puts "Welcome, #{name}"
+    puts "PLEASE SELECT: "
 
     @@menu_options.each_with_index do |option,i|
       print " #{i+1}) #{option}"
       puts
     end
+  end
+
+  def choose_from_menu(balance)
 
     choice = gets.chomp.to_i
     case choice 
       when 1
-        player = Player.new
+        puts "select a game"
       when 2
-        wallet = Wallet.new
+        wallet = Wallet.new(balance)
+        wallet.display
       when 3 
         main_menu = MainMenu.new
       else 
