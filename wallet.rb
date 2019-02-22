@@ -16,5 +16,6 @@ class Wallet
       puts "Please add money"
       add_money
     end
+  end
 
 end
