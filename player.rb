@@ -1,15 +1,14 @@
+require_relative 'player_menu'
+
 class Player
 
-  attr_accessor :name, :wallet
+  attr_accessor :name, :balance
 
-  def initialize(name, wallet)
+  def initialize(name, balance)
     @name = name
-    @wallet = wallet
-  end
-
-  def make_bet
-    bet = rand(1..9)
-    puts bet
+    @balance = balance
+    player_menu = PlayerMenu.new(@name)
+    player_menu.choose_from_menu(balance)
   end
 
 end

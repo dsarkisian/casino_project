@@ -1,20 +1,14 @@
 class Wallet
 
-  attr_accessor :money
+  attr_accessor :balance
 
-  def initialize (money)
-    @money = money
+  def initialize(balance)
+    @balance = balance
   end
 
-  def add_money
-    puts "How much would you like to add?"
-    @addmoney = gets.to_i
-    if @addmoney > 0
-      @addmoney = Array.new
-      puts "$#{money} has been added to your account"
-    else
-      puts "Please add money"
-      add_money
-    end
-
+  def display
+    puts 
+    puts "Your current balance is $#{@balance.to_f.round(2)}"
+    puts
+  end
 end
