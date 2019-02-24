@@ -4,4 +4,3 @@ require_relative 'wallet'
 require_relative 'main_menu'
 
 main_menu = MainMenu.new
-main_menu.choose_from_menu

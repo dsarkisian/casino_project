@@ -23,21 +23,23 @@ class PlayerMenu
     end
   end
 
-  def choose_from_menu(balance)
+  def choose_from_menu
 
     choice = gets.chomp.to_i
     case choice 
       when 1
-        puts "select a game"
+        game_menu = GameMenu.new      
       when 2
         wallet = Wallet.new(balance)
         wallet.display
+        initialize
       when 3 
         main_menu = MainMenu.new
       else 
         puts
         puts "Invalid choice. Please try again"
         initialize
+        choose_from_menu
       end
   end
 end
