@@ -1,3 +1,6 @@
+require_relative 'player_menu'
+require_relative 'player'
+
 class MainMenu
 
   @@menu_options = [
@@ -28,6 +31,8 @@ class MainMenu
         puts "How much money is the player coming in with?"
         balance = gets.to_i
         player = Player.new(new_player_name, balance)
+        @player_menu = PlayerMenu.new(new_player_name)
+        @player_menu.choose_from_menu
       when 2
         puts
         puts "Enter player's name"
