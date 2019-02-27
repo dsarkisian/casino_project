@@ -3,22 +3,33 @@ require_relative 'card'
 
 class HighLow < Deck
 
-  
+  def initialize (bank)
+    @bank = bank
   
 
   def from_wallet
     puts "How much money would you like to add from your wallet?"
     @money = gets.to_i
-    puts "You are adding $#{@money}"
+    if (@bank < @money)
+      puts "You do not have enough money in your wallet. Try again"
+      from_wallet
+    else
+      @bank -= @money
+      puts "You are adding $#{@money}"
+    end
     puts "How much would you like to bet per round?"
     @bet = gets.to_i
-    puts "You are betting $#{@bet}"
+    if @bet > @money
+      puts "Your bet cannot exceed your funding. Try again"
+      return
+    else
+      puts "You are betting $#{@bet}"
+    end
     @gamewallet = @money
   end
 
   def shuffle
-    generate_deck
-    shuffle_cards
+    
     @card1 = @cards.sample.rank.to_s
     puts "Your first card is: #{@card1}"  
   end
@@ -98,4 +109,4 @@ def low_wallet
   end
   
 end
-
+end

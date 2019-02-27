@@ -8,6 +8,10 @@ class Player
     @name = name
     @balance = balance
   end
+
+  def get_balance
+    
+  end
   
   
 end

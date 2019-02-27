@@ -1,6 +1,7 @@
 require_relative 'player'
 require_relative 'wallet'
 require_relative 'main_menu'
+require_relative 'game_menu'
 
 
 class PlayerMenu 
@@ -28,7 +29,8 @@ class PlayerMenu
     choice = gets.chomp.to_i
     case choice 
       when 1
-        game_menu = GameMenu.new      
+        game_menu = GameMenu.new 
+        game_menu.choose_from_menu     
       when 2
         wallet = Wallet.new(balance)
         wallet.display
