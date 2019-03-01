@@ -1,5 +1,9 @@
 
+require 'pry'
 require_relative 'main_menu'
+require_relative 'highlow'
+require_relative 'player'
+require_relative 'slots'
 # Player name
 # See your bank account
 
@@ -18,10 +22,13 @@ class GameMenu
     choice = gets.to_i
     case choice
     when 1
-     slots = Slots.new
+     slots = SlotGame.new(@gamebalance)
+     slots.play_forever
+     return choose_from_menu
     when 2
-      @balance = player.get_balance
-      high_low = HighLow.new(@balance)
+      high_low = HighLow.new(@gamebalance)
+      high_low.from_wallet
+      return choose_from_menu
     when 3
       puts
       puts "Goodbye"

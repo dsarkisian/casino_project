@@ -1,5 +1,6 @@
 require_relative 'player_menu'
 require_relative 'player'
+require_relative 'game_menu'
 
 class MainMenu
 
@@ -30,7 +31,7 @@ class MainMenu
         new_player_name = gets.chomp
         puts "How much money is the player coming in with?"
         balance = gets.to_i
-        player = Player.new(new_player_name, balance)
+        @player = Player.new(new_player_name, balance)
         @player_menu = PlayerMenu.new(new_player_name)
         @player_menu.choose_from_menu
       when 2

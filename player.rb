@@ -1,4 +1,4 @@
-require_relative 'player_menu'
+
 
 class Player
 
@@ -9,9 +9,8 @@ class Player
     @balance = balance
   end
 
-  def get_balance
-    
+  def balance
+    @balance
   end
-  
   
 end

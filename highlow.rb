@@ -6,11 +6,15 @@ class HighLow < Deck
   def initialize (bank)
     @bank = bank
   
+  def compare
+    @bank < @money = true
+    @bank > @money = false
+  end
 
   def from_wallet
     puts "How much money would you like to add from your wallet?"
     @money = gets.to_i
-    if (@bank < @money)
+    if compare == true
       puts "You do not have enough money in your wallet. Try again"
       from_wallet
     else
